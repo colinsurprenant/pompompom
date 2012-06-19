@@ -52,7 +52,7 @@ module PomPomPom
           coordinate
         when Array
           MavenCoordinate.new(*coordinate)
-        when /^[^:]+:[^:]+:[^:]+$/ # TODO: also /^[^#]+#[^;];.+$/
+        when /^[^:]+:[^:]+:[^:]+(:[^:]+)*$/ # TODO: also /^[^#]+#[^;];.+$/
           MavenCoordinate.parse(coordinate)
         else
           raise ArgumentError, %("#{coordinate}" could not be converted to a Maven coordinate)
